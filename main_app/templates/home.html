@@ -13,17 +13,29 @@
 <body>
 
     <h1>Wish List Items!</h1>
-{% if wl %}
-{% for item in wl %}
-<h3>{{ item.definition }}</h3>    
-<a href="{% url 'delete' item.definition%}">Delete</a>
-
-{% endfor %}
+{% if wl|length == 0 %}
+	<h3>No Wish Items Exist</h3>
 {% else %}
-    <h2>No current wishes</h2>
+	<table class="pure-table pure-table-striped">
+		<thead>
+			<tr>
+				<th>Description</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in wl %}
+				<tr>
+					<td>{{ item.definition }}</td>
+					<td><a class="red" href="{% url 'delete' item.definition %}">X</a></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
 {% endif %}
 
-<a href="/add" class="pure-button">Add a Item</a>
+<hr>
+<a href="add/" class="pure-button">Add a Wish Item</a>
 
 
 </body>

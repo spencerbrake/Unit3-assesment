@@ -2,3 +2,12 @@ body {
   text-align: center;
   margin: 2rem;
 }
+
+.pure-table-striped {
+  margin: 2rem auto;
+}
+
+.pure-table-striped a {
+  color: red;
+  text-decoration: none;
+}
